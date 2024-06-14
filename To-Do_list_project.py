@@ -62,7 +62,6 @@
 #     Include a link to your GitHub repository in your project documentation.
 
 def add_todo (to_do_list):
-
         to_do = input("Please add a chore to your To-Do List: ")
         to_do = to_do.capitalize()
         if to_do in to_do_list:
@@ -77,21 +76,22 @@ def remove_todo(to_do_list):
         to_do = input("What item would you like to remove? ")
         to_do = to_do.capitalize()
         to_do_list.remove(to_do)
-    # removing an item from a list that doesnt exist throws an error
-    # handle trying to remove something that we havent added to our to_do_list yet
-    except: # raise a ValueError for something that doesn't exist inside the list.
+    except: 
         print(f"{to_do} does not exist. You can't remove things that don't exist!")
 
 def mark_todo_complete(to_do_list):
-    for i in to_do_list:
-        pass
-
+        completed_todo = input("Which chore have you completed? ")
+        completed_todo = completed_todo.capitalize()
+        for i, chore in enumerate(to_do_list):
+                if chore == completed_todo:
+                        to_do_list[i] += " (Done-zo)"
+                        
+    
 
 to_do_list= []
 
 def main(to_do_list):
-    
-        while True:
+    while True:
             print("""            
 Welcome to the To-Do List App!
 
@@ -107,32 +107,25 @@ Menu:
                 menu_item = int(input("What would you like to do? Please input a number 1-5:  " ))
 
                 if menu_item == 1:
-                    add_todo(to_do_list)
+                        add_todo(to_do_list)
                 elif menu_item == 2:
-                    print(to_do_list)
-                    pass
+                        for item in to_do_list:
+                                print(item)
+                        pass
                 elif menu_item == 3:
-                    mark_todo_complete(to_do_list)
+                        mark_todo_complete(to_do_list)
+                        print(to_do_list)
                 elif menu_item == 4:
-                    remove_todo(to_do_list)
+                        remove_todo(to_do_list)
                 elif menu_item == 5:
-                    print(to_do_list)
-                    break
+                        print(to_do_list)
+                        break
                 else:
-                    print("That's not between 1-5! Try again.")
-                
-                    
-
+                        print("That's not between 1-5! Try again.")
+                   
             except ValueError:
                 print("That is not a number! ")
 
-            
+         
 
-
-
-
-
-    
-  
 main(to_do_list)
-print(to_do_list)
