@@ -1,1 +1,1 @@
-This repository houses my first weekend project for my Coding Templ Back End Core course.
+This repository houses my first weekend project for my Coding Temple Back End Core course.
